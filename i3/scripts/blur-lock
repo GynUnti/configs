@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+# simple screenlocker using i3lock that creates ablurred screenshot to overlay
+
+# SCREENSHOT="scrot -z $PICTURE"
+#
+# BLUR="50x10"
+#
+# $SCREENSHOT
+PICTURE='/usr/share/endeavouros/backgrounds/EVA01.jpg'
+magick $PICTURE -blur $BLUR $PICTURE
+# i3lock -i $PICTURE
+# shred $PICTURE
+# rm $PICTURE
+
+BLANK='#00000000'
+CLEAR='#ffffff22'
+DEFAULT='#ffffffaa'
+TEXT='#ffffffaa'
+WRONG='#880000bb'
+VERIFYING='#57FF3Dff'
+
+i3lock \
+-i $PICTURE \
+--insidever-color=$CLEAR     \
+--ringver-color=$VERIFYING   \
+\
+--insidewrong-color=$CLEAR   \
+--ringwrong-color=$WRONG     \
+\
+--inside-color=$BLANK        \
+--ring-color=$DEFAULT        \
+--line-color=$BLANK          \
+--separator-color=$DEFAULT   \
+\
+--verif-color=$TEXT          \
+--wrong-color=$TEXT          \
+--time-color=$TEXT           \
+--date-color=$TEXT           \
+--layout-color=$TEXT         \
+--keyhl-color=$VERIFYING         \
+--bshl-color=$WRONG          \
+\
+--screen 1                   \
+--blur 8                     \
+--clock                      \
+--indicator                  \
+--time-str="%H:%M:%S"        \
+--date-str="%A, %Y-%m-%d"       \
+--keylayout 1                \
