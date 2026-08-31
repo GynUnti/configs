@@ -188,7 +188,7 @@ bindcode $mod+Shift+90   move container to workspace  $ws10
 ######################################
 
 # start a terminal
-bindsym $mod+q exec --no-startup-id kitty
+bindsym $mod+q exec --no-startup-id env GLFW_IM_MODULE=ibus XMODIFIERS=@im=fcitx kitty --override linux_display_server=x11
 
 # kill focused window
 bindsym $mod+w kill
